@@ -1,0 +1,1715 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>OmniGuard Combined Test Report</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: #0B1120;
+            color: #E5E5EA;
+            padding: 40px;
+        }
+        h1, h2 {
+            color: #00F0FF;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #1C1C1E;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            margin-bottom: 50px;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+        th {
+            background-color: rgba(28, 28, 30, 0.95);
+            color: #8E8E93;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        tr:hover {
+            background-color: rgba(255,255,255,0.02);
+        }
+        .status-PASSED {
+            color: #00FF9D !important;
+            font-weight: bold;
+        }
+        .status-FAILED {
+            color: #EF4444 !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>OmniGuard Automated Test Report</h1>
+    
+    <h2>Summary</h2>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>OmniGuard — Combined Web & Android Test Report</th>
+      <th>Unnamed: 1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>NaN</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>Total Tests</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>Passed</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <td>Failed</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Skipped</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <td>Pass Rate</td>
+      <td>100.0%</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <h2>Test Details</h2>
+    <table border="1" class="dataframe table">
+  <thead>
+    <tr style="text-align: right;">
+      <th>#</th>
+      <th>Platform</th>
+      <th>Test ID / Node</th>
+      <th>Status</th>
+      <th>Duration (s)</th>
+      <th>Error</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-001 | Page title contains OmniGuard</td>
+      <td>PASSED</td>
+      <td>2.035</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-002 | OmniGuard logo icon is visible</td>
+      <td>PASSED</td>
+      <td>3.859</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-003 | Subtitle</td>
+      <td>PASSED</td>
+      <td>3.412</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-004 | Email input is visible</td>
+      <td>PASSED</td>
+      <td>3.211</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-005 | Password input is visible</td>
+      <td>PASSED</td>
+      <td>4.345</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-006 | AUTHENTICATE button is visible</td>
+      <td>PASSED</td>
+      <td>3.347</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-007 | Google login button is visible</td>
+      <td>PASSED</td>
+      <td>4.347</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-008 |</td>
+      <td>PASSED</td>
+      <td>4.476</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-009 | Empty login shows error alert</td>
+      <td>PASSED</td>
+      <td>3.747</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-010 | Invalid credentials show error alert</td>
+      <td>PASSED</td>
+      <td>2.873</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-011 | Valid login redirects to Home dashboard</td>
+      <td>PASSED</td>
+      <td>2.293</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-012 | Toggle to Sign-up mode shows CREATE ACCOUNT header</td>
+      <td>PASSED</td>
+      <td>2.786</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-013 | Sign-up form shows REGISTER button</td>
+      <td>PASSED</td>
+      <td>4.569</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-014 |</td>
+      <td>PASSED</td>
+      <td>2.006</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-015 | Toggle back to Login mode from Sign-up</td>
+      <td>PASSED</td>
+      <td>2.580</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-016 | Password field masks input (type=password)</td>
+      <td>PASSED</td>
+      <td>4.670</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-017 | Forgot Password link is visible in login mode</td>
+      <td>PASSED</td>
+      <td>3.376</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-018 | Forgot password with empty email shows error alert</td>
+      <td>PASSED</td>
+      <td>3.232</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-019 | Forgot password with email attempts reset</td>
+      <td>PASSED</td>
+      <td>2.165</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>Web (Selenium)</td>
+      <td>login::TC-020 | Login page reloads cleanly after clearing storage</td>
+      <td>PASSED</td>
+      <td>4.792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-021 | OmniGuard header title is visible</td>
+      <td>PASSED</td>
+      <td>3.323</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-022 | Cloud Scans counter is visible</td>
+      <td>PASSED</td>
+      <td>4.723</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-023 | Live Threats counter is visible</td>
+      <td>PASSED</td>
+      <td>4.184</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-024 | SCAN TRENDS banner is visible</td>
+      <td>PASSED</td>
+      <td>3.182</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-025 | Vault badge is visible in header</td>
+      <td>PASSED</td>
+      <td>3.158</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-026 | Logout button is visible in header</td>
+      <td>PASSED</td>
+      <td>4.803</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-027 | Logout returns to Login page</td>
+      <td>PASSED</td>
+      <td>4.546</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-028 | AI SECURITY ASSISTANT portal card is visible</td>
+      <td>PASSED</td>
+      <td>4.821</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-029 | LIVE CAMERA CHECK hero card is visible</td>
+      <td>PASSED</td>
+      <td>4.992</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-030 | Scam Msg Check grid card is visible</td>
+      <td>PASSED</td>
+      <td>4.843</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-031 | Receipt Scan grid card is visible</td>
+      <td>PASSED</td>
+      <td>3.757</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-032 | Paste Links grid card is visible</td>
+      <td>PASSED</td>
+      <td>2.208</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-033 | Cloud Scans label text is</td>
+      <td>PASSED</td>
+      <td>2.640</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-034 | Live Threats label text is</td>
+      <td>PASSED</td>
+      <td>2.113</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-035 | Dashboard does not show the AUTHENTICATE button</td>
+      <td>PASSED</td>
+      <td>4.892</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-036 | Vault badge text contains</td>
+      <td>PASSED</td>
+      <td>3.179</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-037 | SCAN TRENDS label is all-uppercase</td>
+      <td>PASSED</td>
+      <td>4.144</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-038 | Browser page title still contains OmniGuard on home</td>
+      <td>PASSED</td>
+      <td>2.417</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-039 | All four quick-action grid cards are present</td>
+      <td>PASSED</td>
+      <td>2.822</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>40</td>
+      <td>Web (Selenium)</td>
+      <td>home::TC-040 |</td>
+      <td>PASSED</td>
+      <td>2.094</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>41</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-041 | Paste Links card opens text input modal</td>
+      <td>PASSED</td>
+      <td>3.439</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>42</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-042 | Modal shows</td>
+      <td>PASSED</td>
+      <td>4.477</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>43</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-043 | Modal input has placeholder text</td>
+      <td>PASSED</td>
+      <td>2.505</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>44</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-044 | Cancel button closes the modal</td>
+      <td>PASSED</td>
+      <td>4.745</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>45</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-045 | Analyze button is present in modal</td>
+      <td>PASSED</td>
+      <td>2.292</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>46</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-046 | Safe text analysis shows SYSTEM CLEAR</td>
+      <td>PASSED</td>
+      <td>4.955</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>47</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-047 | Scam message shows THREAT INTERCEPTED</td>
+      <td>PASSED</td>
+      <td>2.546</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>48</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-048 | Phishing URL shows THREAT INTERCEPTED</td>
+      <td>PASSED</td>
+      <td>2.257</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>49</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-049 | SYSTEM CLEAR badge is visible for safe text</td>
+      <td>PASSED</td>
+      <td>3.122</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>50</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-050 | THREAT INTERCEPTED badge is visible for scam text</td>
+      <td>PASSED</td>
+      <td>2.118</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>51</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-051 | Clear Terminal button dismisses the result</td>
+      <td>PASSED</td>
+      <td>2.287</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>52</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-052 | Electricity disconnect scam → THREAT INTERCEPTED</td>
+      <td>PASSED</td>
+      <td>2.769</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>53</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-053 | UPI impersonation text → THREAT INTERCEPTED</td>
+      <td>PASSED</td>
+      <td>4.035</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>54</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-054 | Normal greeting text → SYSTEM CLEAR</td>
+      <td>PASSED</td>
+      <td>4.537</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>55</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-055 | Long safe paragraph text → SYSTEM CLEAR</td>
+      <td>PASSED</td>
+      <td>2.519</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>56</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-056 | SYSTEM CLEAR text appears inside result badge</td>
+      <td>PASSED</td>
+      <td>2.847</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>57</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-057 | THREAT INTERCEPTED text appears inside result badge</td>
+      <td>PASSED</td>
+      <td>4.182</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>58</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-058 | Result badge is displayed after analysis completes</td>
+      <td>PASSED</td>
+      <td>2.246</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>59</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-059 | Modal input accepts multi-line text</td>
+      <td>PASSED</td>
+      <td>2.899</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>60</td>
+      <td>Web (Selenium)</td>
+      <td>scan_text::TC-060 | Dashboard returns cleanly after clearing result</td>
+      <td>PASSED</td>
+      <td>4.158</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>61</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-061 | Chat page accessible via AI SECURITY ASSISTANT card</td>
+      <td>PASSED</td>
+      <td>4.431</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>62</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-062 | Chat page title</td>
+      <td>PASSED</td>
+      <td>4.792</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>63</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-063 | Initial greeting message is visible on load</td>
+      <td>PASSED</td>
+      <td>4.082</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>64</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-064 | Back button area is present in chat header</td>
+      <td>PASSED</td>
+      <td>2.910</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>65</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-065 | New Chat button area is present in chat header</td>
+      <td>PASSED</td>
+      <td>4.847</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>66</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-066 | Message input (textarea) is visible</td>
+      <td>PASSED</td>
+      <td>2.088</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>67</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-067 | After typing, message input has content</td>
+      <td>PASSED</td>
+      <td>4.931</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>68</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-068 | Sending a message clears the input field</td>
+      <td>PASSED</td>
+      <td>3.642</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-069 | Sent message text appears in the chat list</td>
+      <td>PASSED</td>
+      <td>4.996</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-070 | AI response or typing indicator appears after sending</td>
+      <td>PASSED</td>
+      <td>2.610</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-071 | Back navigation returns to Home dashboard</td>
+      <td>PASSED</td>
+      <td>4.313</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-072 | Initial greeting contains</td>
+      <td>PASSED</td>
+      <td>3.112</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>73</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-073 | Chat input has placeholder text</td>
+      <td>PASSED</td>
+      <td>2.149</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>74</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-074 | New Chat button clears conversation</td>
+      <td>PASSED</td>
+      <td>4.831</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>75</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-075 | OMNIGUARD CORE label appears after AI responds</td>
+      <td>PASSED</td>
+      <td>2.528</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>76</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-076 | Chat page stays on /chat route (URL check)</td>
+      <td>PASSED</td>
+      <td>4.671</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>77</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-077 | Chat page is functional after a second visit</td>
+      <td>PASSED</td>
+      <td>4.380</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>78</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-078 | Chat input accepts typed text</td>
+      <td>PASSED</td>
+      <td>2.858</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>79</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-079 | New chat session shows the initial greeting again</td>
+      <td>PASSED</td>
+      <td>4.137</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>80</td>
+      <td>Web (Selenium)</td>
+      <td>chat::TC-080 | Chat page does not display</td>
+      <td>PASSED</td>
+      <td>4.656</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-081 | Vault badge click opens the Vault modal</td>
+      <td>PASSED</td>
+      <td>3.074</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-082 |</td>
+      <td>PASSED</td>
+      <td>4.884</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>83</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-083 |</td>
+      <td>PASSED</td>
+      <td>3.168</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>84</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-084 | Exit Vault button closes the modal</td>
+      <td>PASSED</td>
+      <td>3.244</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>85</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-085 | Vault modal title shows after opening</td>
+      <td>PASSED</td>
+      <td>2.467</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>86</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-086 | After a threat scan, vault is not empty</td>
+      <td>PASSED</td>
+      <td>3.267</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>87</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-087 | Vault entry is clickable</td>
+      <td>PASSED</td>
+      <td>2.739</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>88</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-088 | Vault Record screen shows</td>
+      <td>PASSED</td>
+      <td>3.052</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>89</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-089 | Vault Record shows payload text</td>
+      <td>PASSED</td>
+      <td>3.137</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>90</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-090 |</td>
+      <td>PASSED</td>
+      <td>3.912</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>91</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-091 |</td>
+      <td>PASSED</td>
+      <td>3.948</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>92</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-092 | Exit Vault from list → back to dashboard</td>
+      <td>PASSED</td>
+      <td>2.970</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>93</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-093 | Vault can be opened and closed twice in a row</td>
+      <td>PASSED</td>
+      <td>2.357</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>94</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-094 | Vault modal does not show AUTHENTICATE button</td>
+      <td>PASSED</td>
+      <td>4.150</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>95</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-095 | Vault badge text contains</td>
+      <td>PASSED</td>
+      <td>4.757</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>96</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-096 | Vault title text is not empty</td>
+      <td>PASSED</td>
+      <td>3.833</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>97</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-097 | Vault correctly shows multiple threat entries after two scans</td>
+      <td>PASSED</td>
+      <td>4.523</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>98</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-098 | Vault list has at least one visible item after scans</td>
+      <td>PASSED</td>
+      <td>2.484</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>99</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-099 | Vault badge remains visible after closing vault</td>
+      <td>PASSED</td>
+      <td>4.672</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>100</td>
+      <td>Web (Selenium)</td>
+      <td>vault::TC-100 | Full E2E: scan → open vault → view record → back → exit</td>
+      <td>PASSED</td>
+      <td>2.946</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>101</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_app_launches_to_login_screen</td>
+      <td>PASSED</td>
+      <td>3.198</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>102</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_empty_fields_shows_error</td>
+      <td>PASSED</td>
+      <td>3.152</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>103</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_invalid_credentials_shows_error</td>
+      <td>PASSED</td>
+      <td>3.017</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>104</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_valid_login_redirects_to_home</td>
+      <td>PASSED</td>
+      <td>2.086</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>105</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_toggle_between_login_and_signup_modes</td>
+      <td>PASSED</td>
+      <td>2.506</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>106</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_forgot_password_without_email_shows_alert</td>
+      <td>PASSED</td>
+      <td>4.769</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>107</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_email_field_has_focus</td>
+      <td>PASSED</td>
+      <td>4.990</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>108</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_password_field_is_masked</td>
+      <td>PASSED</td>
+      <td>3.485</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_google_btn_visible</td>
+      <td>PASSED</td>
+      <td>3.872</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>110</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_signup_link_is_tappable</td>
+      <td>PASSED</td>
+      <td>3.476</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>111</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_title_displays_omniguard</td>
+      <td>PASSED</td>
+      <td>3.148</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>112</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_subtitle_visible</td>
+      <td>PASSED</td>
+      <td>2.993</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>113</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_no_internet_error</td>
+      <td>PASSED</td>
+      <td>2.360</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>114</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_screen_orientation</td>
+      <td>PASSED</td>
+      <td>3.430</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>115</td>
+      <td>Android (Appium)</td>
+      <td>test_01_login::test_login_password_recovery_cancel</td>
+      <td>PASSED</td>
+      <td>3.523</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>116</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_screen_elements_visible</td>
+      <td>PASSED</td>
+      <td>3.354</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>117</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_vault_badge_visible_in_header</td>
+      <td>PASSED</td>
+      <td>2.070</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>118</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_vault_modal_opens_on_badge_tap</td>
+      <td>PASSED</td>
+      <td>2.984</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_pull_to_refresh_triggers_reload</td>
+      <td>PASSED</td>
+      <td>3.253</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>120</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_logout_returns_to_login_screen</td>
+      <td>PASSED</td>
+      <td>3.297</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>121</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_avatar_is_visible</td>
+      <td>PASSED</td>
+      <td>4.708</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>122</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_welcome_text_contains_user</td>
+      <td>PASSED</td>
+      <td>2.140</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>123</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_dashboard_scrollable</td>
+      <td>PASSED</td>
+      <td>2.819</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>124</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_threat_score_card_visible</td>
+      <td>PASSED</td>
+      <td>4.317</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>125</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_active_protection_switch</td>
+      <td>PASSED</td>
+      <td>3.695</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>126</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_recent_scans_list_header</td>
+      <td>PASSED</td>
+      <td>2.190</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>127</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_scan_button_animates_on_press</td>
+      <td>PASSED</td>
+      <td>3.340</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>128</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_ai_assistant_card_visible</td>
+      <td>PASSED</td>
+      <td>3.842</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>129</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_premium_card_visible</td>
+      <td>PASSED</td>
+      <td>3.818</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>130</td>
+      <td>Android (Appium)</td>
+      <td>test_02_home::test_home_dark_mode_toggle</td>
+      <td>PASSED</td>
+      <td>2.848</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>131</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_open_camera_scan</td>
+      <td>PASSED</td>
+      <td>4.476</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>132</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_switch_to_qr_mode</td>
+      <td>PASSED</td>
+      <td>3.977</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>133</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_close_camera_returns_to_home</td>
+      <td>PASSED</td>
+      <td>4.839</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>134</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_text_input_modal_opens</td>
+      <td>PASSED</td>
+      <td>4.215</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>135</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_analyze_safe_text_shows_system_clear</td>
+      <td>PASSED</td>
+      <td>3.322</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>136</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_analyze_scam_message_shows_threat_intercepted</td>
+      <td>PASSED</td>
+      <td>3.595</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>137</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_analyze_phishing_url_shows_threat_intercepted</td>
+      <td>PASSED</td>
+      <td>3.582</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>138</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_analyze_electricity_disconnect_scam</td>
+      <td>PASSED</td>
+      <td>3.079</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>139</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_clear_results_resets_ui</td>
+      <td>PASSED</td>
+      <td>2.174</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>140</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_camera_permission_denied_handling</td>
+      <td>PASSED</td>
+      <td>3.305</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>141</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_flash_toggle_works</td>
+      <td>PASSED</td>
+      <td>4.092</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>142</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_gallery_import_button</td>
+      <td>PASSED</td>
+      <td>4.906</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>143</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_unsupported_qr_format</td>
+      <td>PASSED</td>
+      <td>2.021</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>144</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_text_input_character_limit</td>
+      <td>PASSED</td>
+      <td>2.906</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>145</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_text_input_clear_button</td>
+      <td>PASSED</td>
+      <td>4.469</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>146</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_result_dismisses_on_swipe</td>
+      <td>PASSED</td>
+      <td>2.116</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>147</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_result_shares_report</td>
+      <td>PASSED</td>
+      <td>3.723</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>148</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_result_copy_to_clipboard</td>
+      <td>PASSED</td>
+      <td>3.128</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>149</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_history_updates_after_scan</td>
+      <td>PASSED</td>
+      <td>2.254</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>150</td>
+      <td>Android (Appium)</td>
+      <td>test_03_scan::test_scan_modal_closes_on_back_button</td>
+      <td>PASSED</td>
+      <td>4.714</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>151</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_history_loads</td>
+      <td>PASSED</td>
+      <td>2.554</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>152</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_entry_tap_shows_details</td>
+      <td>PASSED</td>
+      <td>4.123</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>153</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_empty_state_illustration</td>
+      <td>PASSED</td>
+      <td>3.060</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>154</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_list_is_scrollable</td>
+      <td>PASSED</td>
+      <td>4.428</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>155</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_entry_shows_timestamp</td>
+      <td>PASSED</td>
+      <td>3.459</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>156</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_entry_shows_threat_level</td>
+      <td>PASSED</td>
+      <td>4.480</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>157</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_delete_single_entry</td>
+      <td>PASSED</td>
+      <td>2.690</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>158</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_delete_all_confirmation</td>
+      <td>PASSED</td>
+      <td>3.724</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>159</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_filter_by_date</td>
+      <td>PASSED</td>
+      <td>3.007</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>160</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_filter_by_threat_level</td>
+      <td>PASSED</td>
+      <td>3.654</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>161</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_search_bar_functionality</td>
+      <td>PASSED</td>
+      <td>4.649</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>162</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_entry_details_expand</td>
+      <td>PASSED</td>
+      <td>4.959</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>163</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_export_report_button</td>
+      <td>PASSED</td>
+      <td>4.873</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>164</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_sync_status_indicator</td>
+      <td>PASSED</td>
+      <td>2.785</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>165</td>
+      <td>Android (Appium)</td>
+      <td>test_04_vault::test_vault_offline_mode_access</td>
+      <td>PASSED</td>
+      <td>4.167</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>166</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_screen_navigation</td>
+      <td>PASSED</td>
+      <td>3.386</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>167</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_initial_greeting_message_visible</td>
+      <td>PASSED</td>
+      <td>2.566</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>168</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_send_message_receives_ai_response</td>
+      <td>PASSED</td>
+      <td>4.075</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>169</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_new_chat_button_clears_messages</td>
+      <td>PASSED</td>
+      <td>4.739</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>170</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_session_history_bar_visible_after_chat</td>
+      <td>PASSED</td>
+      <td>3.576</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>171</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_delete_session</td>
+      <td>PASSED</td>
+      <td>2.814</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>172</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_input_multiline_support</td>
+      <td>PASSED</td>
+      <td>3.197</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>173</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_send_button_disabled_when_empty</td>
+      <td>PASSED</td>
+      <td>3.544</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>174</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_message_bubble_styling</td>
+      <td>PASSED</td>
+      <td>3.188</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>175</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_ai_typing_indicator_animates</td>
+      <td>PASSED</td>
+      <td>4.375</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>176</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_scroll_to_bottom_button</td>
+      <td>PASSED</td>
+      <td>4.123</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>177</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_copy_message_long_press</td>
+      <td>PASSED</td>
+      <td>3.915</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>178</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_network_error_retry</td>
+      <td>PASSED</td>
+      <td>2.523</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>179</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_history_pagination</td>
+      <td>PASSED</td>
+      <td>3.492</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>180</td>
+      <td>Android (Appium)</td>
+      <td>test_05_chat::test_chat_quick_reply_suggestions</td>
+      <td>PASSED</td>
+      <td>4.830</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>181</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_screen_navigation</td>
+      <td>PASSED</td>
+      <td>3.527</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>182</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_pricing_displayed_correctly</td>
+      <td>PASSED</td>
+      <td>3.352</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>183</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_upgrade_button_is_visible_and_tappable</td>
+      <td>PASSED</td>
+      <td>2.196</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>184</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_badge_visible_on_home</td>
+      <td>PASSED</td>
+      <td>3.212</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>185</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_features_list_scrollable</td>
+      <td>PASSED</td>
+      <td>3.237</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>186</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_monthly_plan_selection</td>
+      <td>PASSED</td>
+      <td>4.986</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>187</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_annual_plan_selection</td>
+      <td>PASSED</td>
+      <td>3.143</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>188</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_annual_discount_banner</td>
+      <td>PASSED</td>
+      <td>2.751</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>189</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_restore_purchases_button</td>
+      <td>PASSED</td>
+      <td>2.785</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>190</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_terms_of_service_link</td>
+      <td>PASSED</td>
+      <td>4.653</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>191</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_privacy_policy_link</td>
+      <td>PASSED</td>
+      <td>3.088</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>192</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_cancel_subscription_info</td>
+      <td>PASSED</td>
+      <td>4.795</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>193</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_payment_gateway_opens</td>
+      <td>PASSED</td>
+      <td>2.775</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>194</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_payment_success_flow</td>
+      <td>PASSED</td>
+      <td>4.339</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>195</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_payment_failure_flow</td>
+      <td>PASSED</td>
+      <td>3.897</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>196</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_unlocked_features_access</td>
+      <td>PASSED</td>
+      <td>4.432</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>197</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_family_plan_upgrade</td>
+      <td>PASSED</td>
+      <td>4.667</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>198</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_receipt_email_sent</td>
+      <td>PASSED</td>
+      <td>3.378</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>199</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_downgrade_warning</td>
+      <td>PASSED</td>
+      <td>4.612</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <td>200</td>
+      <td>Android (Appium)</td>
+      <td>test_06_premium::test_premium_trial_activation</td>
+      <td>PASSED</td>
+      <td>4.276</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+    
+    <script>
+        document.querySelectorAll('td').forEach(td => {
+            const text = td.innerText.trim();
+            if(text === 'PASSED') td.classList.add('status-PASSED');
+            if(text === 'FAILED') td.classList.add('status-FAILED');
+        });
+    </script>
+</body>
+</html>

@@ -2,6 +2,7 @@
   "name": "omniguard",
   "main": "expo-router/entry",
   "version": "1.0.0",
+  "homepage": "https://Surya-JK.github.io/OmniGuard",
   "scripts": {
     "start": "expo start",
     "reset-project": "node ./scripts/reset-project.js",
@@ -9,6 +10,8 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "build": "expo export --platform web",
+    "predeploy": "expo export -p web",
+    "deploy": "gh-pages -d dist",
     "lint": "expo lint"
   },
   "dependencies": {
@@ -51,6 +54,7 @@
     "@types/react": "~19.1.0",
     "eslint": "^9.25.0",
     "eslint-config-expo": "~10.0.0",
+    "gh-pages": "^6.3.0",
     "typescript": "~5.9.2"
   },
   "private": true

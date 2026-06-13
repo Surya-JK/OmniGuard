@@ -1,0 +1,51 @@
+name: Selenium E2E Testing
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Use Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18.x'
+
+    - name: Install Dependencies
+      run: npm install
+      working-directory: ./tests/selenium
+
+    - name: Run Selenium E2E Testing
+      id: e2e-test
+      env:
+        SELENIUM_HEADLESS: 'true'
+        OMNIGUARD_WEB_URL: 'https://Surya-JK.github.io/OmniGuard'
+      run: npm run test:headless
+      working-directory: ./tests/selenium
+
+    - name: Pass / Fail Report
+      if: always()
+      run: |
+        echo "## Production Validation: Selenium E2E Testing" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ steps.e2e-test.outcome }}" == "success" ]; then
+          echo "✅ **PASS**: All E2E Tests completed successfully." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ **FAIL**: Some E2E Tests failed. Please check the logs." >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: Deploy HTML Report to GitHub Pages
+      if: always()
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        pip install pandas openpyxl
+        python convert_report.py
+        npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>"

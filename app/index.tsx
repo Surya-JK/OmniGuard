@@ -769,6 +769,10 @@ export default function App() {
                 }} style={[styles.vaultBadge, {borderColor: 'rgba(239, 68, 68, 0.3)', paddingHorizontal: 8}]}>
                     <Ionicons name="log-out-outline" size={14} color="#EF4444" />
                 </TouchableOpacity>
+                <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); router.push('/reports'); }} style={styles.vaultBadge}>
+                    <Ionicons name="document-text-outline" size={12} color="#00F0FF" style={{ marginRight: 6 }} />
+                    <Text style={[styles.vaultBadgeText, { color: '#00F0FF' }]}>Reports</Text>
+                </TouchableOpacity>
                 <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); setIsHistoryModalVisible(true); }} style={styles.vaultBadge}>
                     <Ionicons name="server-outline" size={12} color="#CBD5E1" style={{ marginRight: 6 }} />
                     <Text style={styles.vaultBadgeText}>Vault ({threatHistory.length})</Text>
