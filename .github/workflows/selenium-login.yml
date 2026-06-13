@@ -55,8 +55,7 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: omniguard-test-reports
-        path: |
-          report-build/
-          reports/
+        name: omniguard-test-report
+        path: reports/OmniGuard_Combined_Test_Report.xlsx
+
 
