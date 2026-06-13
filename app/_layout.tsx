@@ -5,7 +5,16 @@ import { Ionicons } from '@expo/vector-icons';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 
-import { Platform } from 'react-native';
+import { Platform, Alert } from 'react-native';
+
+// Polyfill Alert.alert for React Native Web
+if (Platform.OS === 'web') {
+  Alert.alert = (title, message) => {
+    if (typeof window !== 'undefined') {
+      window.alert(title + (message ? '\n\n' + message : ''));
+    }
+  };
+}
 
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();

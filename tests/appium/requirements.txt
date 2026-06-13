@@ -1,0 +1,19 @@
+# OmniGuard — Appium Android Test Requirements
+# Install with: pip install -r requirements.txt
+
+# Appium Python client (v3 - compatible with Appium Server v2)
+Appium-Python-Client>=3.1.0
+
+# Test framework
+pytest>=7.4.0
+pytest-html>=4.1.1      # HTML test report
+pytest-timeout>=2.2.0   # Per-test timeout
+
+# Excel report generation
+openpyxl>=3.1.2
+
+# Environment variables from .env file
+python-dotenv>=1.0.0
+
+# Utilities
+colorama>=0.4.6          # Colored terminal output

@@ -1,0 +1,122 @@
+[
+  {
+    "nodeid": "home::TC-021 | OmniGuard header title is visible",
+    "outcome": "PASSED",
+    "duration": 0.096,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "home::TC-022 | Cloud Scans counter is visible",
+    "outcome": "PASSED",
+    "duration": 0.071,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "home::TC-023 | Live Threats counter is visible",
+    "outcome": "PASSED",
+    "duration": 0.072,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "home::TC-024 | SCAN TRENDS banner is visible",
+    "outcome": "PASSED",
+    "duration": 0.059,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "home::TC-025 | Vault badge is visible in header",
+    "outcome": "PASSED",
+    "duration": 0.088,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "home::TC-026 | Logout button is visible in header",
+    "outcome": "FAILED",
+    "duration": 3.265,
+    "longrepr": "NoSuchSessionError: invalid session id: session deleted as the browser has closed the connection\nfrom disconnected: unable to send message to renderer\n  (Session info: chrome=148.0.7778.217)\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\"
+  },
+  {
+    "nodeid": "home::TC-027 | Logout returns to Login page",
+    "outcome": "FAILED",
+    "duration": 1.871,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-028 | AI SECURITY ASSISTANT portal card is visible",
+    "outcome": "FAILED",
+    "duration": 0.004,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-029 | LIVE CAMERA CHECK hero card is visible",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-030 | Scam Msg Check grid card is visible",
+    "outcome": "FAILED",
+    "duration": 0.004,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-031 | Receipt Scan grid card is visible",
+    "outcome": "FAILED",
+    "duration": 0.004,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-032 | Paste Links grid card is visible",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-033 | Cloud Scans label text is \"Cloud Scans\"",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-034 | Live Threats label text is \"Live Threats\"",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-035 | Dashboard does not show the AUTHENTICATE button",
+    "outcome": "FAILED",
+    "duration": 0.002,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-036 | Vault badge text contains \"Vault\"",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-037 | SCAN TRENDS label is all-uppercase",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-038 | Browser page title still contains OmniGuard on home",
+    "outcome": "FAILED",
+    "duration": 0.002,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-039 | All four quick-action grid cards are present",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  },
+  {
+    "nodeid": "home::TC-040 | \"Chat with the OmniGuard Intelligence\" subtitle visible",
+    "outcome": "FAILED",
+    "duration": 0.003,
+    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+  }
+]

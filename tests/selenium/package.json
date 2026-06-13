@@ -1,0 +1,24 @@
+{
+  "name": "omniguard-selenium-tests",
+  "version": "1.0.0",
+  "description": "OmniGuard Web E2E Test Suite — Selenium (Node.js)",
+  "private": true,
+  "scripts": {
+    "test": "jest --runInBand",
+    "test:headless": "cross-env SELENIUM_HEADLESS=true jest --runInBand",
+    "test:login": "jest --runInBand --testPathPattern=test_01_login",
+    "test:home": "jest --runInBand --testPathPattern=test_02_home",
+    "test:scan": "jest --runInBand --testPathPattern=test_03_scan",
+    "test:chat": "jest --runInBand --testPathPattern=test_04_chat",
+    "test:vault": "jest --runInBand --testPathPattern=test_05_vault"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "selenium-webdriver": "^4.28.0"
+  },
+  "devDependencies": {
+    "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
+    "jest": "^29.7.0"
+  }
+}

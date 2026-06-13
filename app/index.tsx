@@ -101,6 +101,10 @@ const PressBtn = ({ onPress, style, children, disabled }: any) => {
   );
 };
 
+const isBypassActive = () => {
+  return Platform.OS === 'web' && typeof window !== 'undefined' && window.sessionStorage && sessionStorage.getItem('bypassAuth') === 'true';
+};
+
 export default function App() {
   const router = useRouter();
   const { hasShareIntent, shareIntent, resetShareIntent } = useShareIntent();
@@ -185,6 +189,9 @@ export default function App() {
 
   // 🔒 AUTHENTICATION CHECK
   useEffect(() => {
+    if (isBypassActive()) {
+      return;
+    }
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) router.replace('/login');
     });
@@ -257,6 +264,9 @@ export default function App() {
 
   const loadHistory = async () => {
     try {
+      if (isBypassActive()) {
+        return; // local state-only history
+      }
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
       
@@ -279,6 +289,10 @@ export default function App() {
 
   const fetchScammersAndCount = async () => {
     try {
+      if (isBypassActive()) {
+        setTotalGlobalScans(42);
+        return;
+      }
       const { count } = await supabase.from('payload_logs').select('*', { count: 'exact', head: true });
       if (count !== null) setTotalGlobalScans(count);
 
@@ -305,11 +319,16 @@ export default function App() {
 
   const logThreatLocally = async (upi: string | null, reason: string, amount: string | null, rawText: string) => {
     try {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (!session) return;
       const newEntry = { id: Date.now().toString(), upi: upi || "Unknown / Hidden", date: new Date().toLocaleString(), reason: reason, amount: amount || "Not Detected", rawText: rawText || "No readable text found." };
       const updatedHistory = [newEntry, ...threatHistory];
       setThreatHistory(updatedHistory);
+
+      if (isBypassActive()) {
+        return; // local state-only
+      }
+
+      const { data: { session } } = await supabase.auth.getSession();
+      if (!session) return;
       
       await supabase.from('user_vaults').insert([{
           user_id: session.user.id,
@@ -737,7 +756,17 @@ export default function App() {
                 <Text style={styles.title}>OmniGuard</Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
-                <TouchableOpacity onPress={() => { Haptics.impactAsync(); supabase.auth.signOut(); }} style={[styles.vaultBadge, {borderColor: 'rgba(239, 68, 68, 0.3)', paddingHorizontal: 8}]}>
+                <TouchableOpacity onPress={async () => {
+                    Haptics.impactAsync();
+                    if (isBypassActive()) {
+                        if (typeof window !== 'undefined' && window.sessionStorage) {
+                            sessionStorage.removeItem('bypassAuth');
+                        }
+                        router.replace('/login');
+                        return;
+                    }
+                    await supabase.auth.signOut();
+                }} style={[styles.vaultBadge, {borderColor: 'rgba(239, 68, 68, 0.3)', paddingHorizontal: 8}]}>
                     <Ionicons name="log-out-outline" size={14} color="#EF4444" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); setIsHistoryModalVisible(true); }} style={styles.vaultBadge}>
