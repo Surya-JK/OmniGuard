@@ -47,4 +47,4 @@ jobs:
         node tests/selenium/generate_combined_report.js
         pip install pandas openpyxl
         python convert_report.py
-        npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>"
+        npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>" --repo "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
