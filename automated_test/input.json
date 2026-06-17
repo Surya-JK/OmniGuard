@@ -1,0 +1,11 @@
+{
+  "_note": "Values extracted from source — anon key is the Supabase publishable key found in index.tsx / login.tsx",
+  "baseUrl": "https://yeelfddemddlqktiqhjr.supabase.co",
+  "anonKey": "sb_publishable_NiafDMZpqWA8VAJ8jaw2sA_aX1--8SG",
+  "userToken": "__REPLACE_WITH_VALID_USER_JWT__",
+  "adminToken": "__REPLACE_WITH_ADMIN_JWT_IF_ANY__",
+  "bypassCredentials": {
+    "email": "testuser@omniguard.dev",
+    "password": "TestPass123!"
+  }
+}

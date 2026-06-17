@@ -15,36 +15,8 @@ import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
 import { Ionicons } from '@expo/vector-icons';
 
-// --- SUPABASE MIGRATION ---
-import 'react-native-url-polyfill/auto';
-import { createClient } from '@supabase/supabase-js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const customStorage = {
-  getItem: async (key: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return null;
-    return await AsyncStorage.getItem(key);
-  },
-  setItem: async (key: string, value: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return;
-    await AsyncStorage.setItem(key, value);
-  },
-  removeItem: async (key: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return;
-    await AsyncStorage.removeItem(key);
-  },
-};
-
-const SUPABASE_URL = 'https://yeelfddemddlqktiqhjr.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_NiafDMZpqWA8VAJ8jaw2sA_aX1--8SG';
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: {
-    storage: customStorage,
-    autoRefreshToken: true,
-    persistSession: true,
-    detectSessionInUrl: false,
-  },
-});
+// --- SUPABASE ---
+import { supabase } from '../lib/supabaseClient';
 
 const SUSPICIOUS_KEYWORDS = [
   'support', 'refund', 'offer', 'prize', 'cashback', 'kyc', 'reward', 'admin', 
@@ -101,9 +73,7 @@ const PressBtn = ({ onPress, style, children, disabled }: any) => {
   );
 };
 
-const isBypassActive = () => {
-  return Platform.OS === 'web' && typeof window !== 'undefined' && window.sessionStorage && sessionStorage.getItem('bypassAuth') === 'true';
-};
+// NOTE: dev auth-bypass removed — use a real Supabase test account in CI.
 
 export default function App() {
   const router = useRouter();
@@ -189,9 +159,6 @@ export default function App() {
 
   // 🔒 AUTHENTICATION CHECK
   useEffect(() => {
-    if (isBypassActive()) {
-      return;
-    }
     supabase.auth.getSession().then(({ data: { session } }) => {
       if (!session) router.replace('/login');
     });
@@ -264,9 +231,6 @@ export default function App() {
 
   const loadHistory = async () => {
     try {
-      if (isBypassActive()) {
-        return; // local state-only history
-      }
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
       
@@ -289,10 +253,6 @@ export default function App() {
 
   const fetchScammersAndCount = async () => {
     try {
-      if (isBypassActive()) {
-        setTotalGlobalScans(42);
-        return;
-      }
       const { count } = await supabase.from('payload_logs').select('*', { count: 'exact', head: true });
       if (count !== null) setTotalGlobalScans(count);
 
@@ -322,10 +282,6 @@ export default function App() {
       const newEntry = { id: Date.now().toString(), upi: upi || "Unknown / Hidden", date: new Date().toLocaleString(), reason: reason, amount: amount || "Not Detected", rawText: rawText || "No readable text found." };
       const updatedHistory = [newEntry, ...threatHistory];
       setThreatHistory(updatedHistory);
-
-      if (isBypassActive()) {
-        return; // local state-only
-      }
 
       const { data: { session } } = await supabase.auth.getSession();
       if (!session) return;
@@ -758,13 +714,6 @@ export default function App() {
             <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
                 <TouchableOpacity onPress={async () => {
                     Haptics.impactAsync();
-                    if (isBypassActive()) {
-                        if (typeof window !== 'undefined' && window.sessionStorage) {
-                            sessionStorage.removeItem('bypassAuth');
-                        }
-                        router.replace('/login');
-                        return;
-                    }
                     await supabase.auth.signOut();
                 }} style={[styles.vaultBadge, {borderColor: 'rgba(239, 68, 68, 0.3)', paddingHorizontal: 8}]}>
                     <Ionicons name="log-out-outline" size={14} color="#EF4444" />

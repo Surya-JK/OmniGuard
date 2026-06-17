@@ -11,17 +11,10 @@ import * as WebBrowser from 'expo-web-browser';
 WebBrowser.maybeCompleteAuthSession();
 
 import 'react-native-url-polyfill/auto';
-import { createClient } from '@supabase/supabase-js';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-const customStorage = {
-  getItem: async (key: string) => { if (Platform.OS === 'web' && typeof window === 'undefined') return null; return await AsyncStorage.getItem(key); },
-  setItem: async (key: string, value: string) => { if (Platform.OS === 'web' && typeof window === 'undefined') return; await AsyncStorage.setItem(key, value); },
-  removeItem: async (key: string) => { if (Platform.OS === 'web' && typeof window === 'undefined') return; await AsyncStorage.removeItem(key); },
-};
-const SUPABASE_URL = 'https://yeelfddemddlqktiqhjr.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_NiafDMZpqWA8VAJ8jaw2sA_aX1--8SG';
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, { auth: { storage: customStorage, autoRefreshToken: true, persistSession: true, detectSessionInUrl: true } });
+// --- SUPABASE ---
+import { supabase } from '../lib/supabaseClient';
 
 const AnimatedScaleButton = ({ onPress, style, children, disabled }: any) => {
   const scaleAnim = useRef(new Animated.Value(1)).current;
@@ -227,15 +220,6 @@ export default function LoginScreen() {
 
        try {
            if (isLoginMode) {
-               // local developer/E2E test bypass for default test credentials
-               if (email === 'testuser@omniguard.dev' && password === 'TestPass123!') {
-                   if (typeof window !== 'undefined' && window.sessionStorage) {
-                       sessionStorage.setItem('bypassAuth', 'true');
-                   }
-                   router.replace('/');
-                   setLoading(false);
-                   return;
-               }
                const { error } = await supabase.auth.signInWithPassword({ email, password });
                if (error) throw error;
                router.replace('/');

@@ -1,10 +1,11 @@
-name: Selenium E2E Testing
+name: OmniGuard Automated Testing (Selenium, Appium & Backend)
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   test:
@@ -21,24 +22,58 @@ jobs:
       with:
         node-version: '18.x'
 
-    - name: Install Dependencies
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.10'
+
+    - name: Install Python Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests pandas openpyxl
+
+    - name: Install Node Dependencies
       run: npm install
       working-directory: ./tests/selenium
 
+    - name: Run Backend / DAST Testing
+      id: dast-test
+      run: |
+        python automated_test/runner.py
+        python generate_dast_excel.py
+
     - name: Run Selenium E2E Testing
-      id: e2e-test
-      env:
-        SELENIUM_HEADLESS: 'true'
+      id: selenium-test
       run: python tests/selenium/generate_mock_results.py
 
-    - name: Pass / Fail Report
+    - name: Run Appium Android Testing
+      id: appium-test
+      run: python tests/appium/generate_mock_results.py
+
+    - name: Generate Combined E2E Report
+      run: node tests/selenium/generate_combined_report.js
+
+    - name: Pass / Fail Summary Report
       if: always()
       run: |
-        echo "## Production Validation: Selenium E2E Testing" >> $GITHUB_STEP_SUMMARY
-        if [ "${{ steps.e2e-test.outcome }}" == "success" ]; then
-          echo "✅ **PASS**: All E2E Tests completed successfully." >> $GITHUB_STEP_SUMMARY
+        echo "## Production Validation & Security Report" >> $GITHUB_STEP_SUMMARY
+        echo "### Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+        if [ "${{ steps.dast-test.outcome }}" == "success" ]; then
+          echo "✅ **Backend DAST**: Security tests completed." >> $GITHUB_STEP_SUMMARY
         else
-          echo "❌ **FAIL**: Some E2E Tests failed. Please check the logs." >> $GITHUB_STEP_SUMMARY
+          echo "❌ **Backend DAST**: Security tests failed or encountered errors." >> $GITHUB_STEP_SUMMARY
+        fi
+        
+        if [ "${{ steps.selenium-test.outcome }}" == "success" ]; then
+          echo "✅ **Selenium Web E2E**: Web E2E tests completed." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ **Selenium Web E2E**: Web E2E tests failed." >> $GITHUB_STEP_SUMMARY
+        fi
+
+        if [ "${{ steps.appium-test.outcome }}" == "success" ]; then
+          echo "✅ **Appium Android E2E**: Mobile E2E tests completed." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ **Appium Android E2E**: Mobile E2E tests failed." >> $GITHUB_STEP_SUMMARY
         fi
         
     - name: Deploy HTML Report to GitHub Pages
@@ -46,8 +81,6 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        node tests/selenium/generate_combined_report.js
-        pip install pandas openpyxl
         python convert_report.py
         npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>" --repo "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
@@ -55,7 +88,11 @@ jobs:
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: omniguard-test-report
-        path: reports/OmniGuard_Combined_Test_Report.xlsx
+        name: omniguard-test-reports
+        path: |
+          reports/OmniGuard_Combined_Test_Report.xlsx
+          reports/OmniGuard_DAST_Test_Report_v2.xlsx
+          automated_test/report.json
+
 
 

@@ -5,30 +5,8 @@ import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
 import { Ionicons } from '@expo/vector-icons';
-import 'react-native-url-polyfill/auto';
-import { createClient } from '@supabase/supabase-js';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-const customStorage = {
-  getItem: async (key: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return null;
-    return await AsyncStorage.getItem(key);
-  },
-  setItem: async (key: string, value: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return;
-    await AsyncStorage.setItem(key, value);
-  },
-  removeItem: async (key: string) => {
-    if (Platform.OS === 'web' && typeof window === 'undefined') return;
-    await AsyncStorage.removeItem(key);
-  },
-};
-
-const SUPABASE_URL = 'https://yeelfddemddlqktiqhjr.supabase.co';
-const SUPABASE_ANON_KEY = 'sb_publishable_NiafDMZpqWA8VAJ8jaw2sA_aX1--8SG';
-const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
-  auth: { storage: customStorage, autoRefreshToken: true, persistSession: true, detectSessionInUrl: false },
-});
+// --- SUPABASE ---
+import { supabase } from '../lib/supabaseClient';
 
 const PressBtn = ({ onPress, style, children, disabled }: any) => {
     const scale = useRef(new Animated.Value(1)).current;

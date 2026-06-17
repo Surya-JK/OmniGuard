@@ -1,0 +1,13 @@
+{
+  "completed": [
+    "test_01_authn_bypass",
+    "test_02_authz_privesc",
+    "test_03_idor",
+    "test_04_rbac_matrix",
+    "test_05_token_tampering",
+    "test_06_injection",
+    "test_07_rate_limiting",
+    "test_08_hardcoded_creds"
+  ],
+  "ts": "2026-06-16T10:37:53.214602+00:00"
+}
