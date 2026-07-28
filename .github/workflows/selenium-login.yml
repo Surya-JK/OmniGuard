@@ -36,6 +36,28 @@ jobs:
       run: npm install
       working-directory: ./tests/selenium
 
+    # ── Inject Supabase credentials into DAST config at runtime ──────────────
+    - name: Configure DAST input.json from Secrets
+      env:
+        SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+        SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+      run: |
+        python - <<'EOF'
+        import json, os
+        config_path = "automated_test/input.json"
+        with open(config_path) as f:
+            cfg = json.load(f)
+        cfg["baseUrl"]  = os.environ["SUPABASE_URL"]
+        cfg["anonKey"]  = os.environ["SUPABASE_ANON_KEY"]
+        with open(config_path, "w") as f:
+            json.dump(cfg, f, indent=2)
+        print(f"[OK] input.json updated with SUPABASE_URL={os.environ['SUPABASE_URL']}")
+        EOF
+
+    # ── Remove any stale savepoint so all tests always run fresh ─────────────
+    - name: Clear DAST savepoint
+      run: rm -f automated_test/savepoint.json automated_test/report.json
+
     - name: Run Backend / DAST Testing
       id: dast-test
       run: |
@@ -53,29 +75,113 @@ jobs:
     - name: Generate Combined E2E Report
       run: node tests/selenium/generate_combined_report.js
 
+    # ── Parse DAST results and write rich Markdown summary ───────────────────
+    - name: Parse DAST Results & Write Summary
+      if: always()
+      run: |
+        python - <<'PYEOF'
+        import json, os, sys
+        from pathlib import Path
+
+        report_path = Path("automated_test/report.json")
+        summary_file = os.environ.get("GITHUB_STEP_SUMMARY", "/dev/stdout")
+
+        if not report_path.exists():
+            with open(summary_file, "a") as f:
+                f.write("## ⚠️ DAST Report\n\nNo report.json found — DAST tests may have failed to start.\n")
+            sys.exit(0)
+
+        with open(report_path, encoding="utf-8") as f:
+            records = json.load(f)
+
+        findings = [r for r in records if r.get("finding")]
+        passed   = [r for r in records if not r.get("finding")]
+        by_sev   = {}
+        for r in findings:
+            by_sev.setdefault(r.get("severity","INFO"), []).append(r)
+
+        critical = by_sev.get("CRITICAL", [])
+        high     = by_sev.get("HIGH", [])
+        medium   = by_sev.get("MEDIUM", [])
+
+        lines = []
+        lines.append("## 🛡️ OmniGuard DAST Security Report\n")
+        lines.append(f"| Metric | Value |")
+        lines.append(f"|--------|-------|")
+        lines.append(f"| Total Tests | {len(records)} |")
+        lines.append(f"| ✅ Passed | {len(passed)} |")
+        lines.append(f"| ❌ Findings | {len(findings)} |")
+        if critical: lines.append(f"| 🔴 CRITICAL | {len(critical)} |")
+        if high:     lines.append(f"| 🟠 HIGH     | {len(high)} |")
+        if medium:   lines.append(f"| 🟡 MEDIUM   | {len(medium)} |")
+        lines.append("")
+
+        if findings:
+            lines.append("### ❌ Security Findings\n")
+            for sev, icon in [("CRITICAL","🔴"), ("HIGH","🟠"), ("MEDIUM","🟡"), ("LOW","🔵")]:
+                items = by_sev.get(sev, [])
+                if items:
+                    lines.append(f"#### {icon} {sev} ({len(items)} finding(s))\n")
+                    lines.append("| Category | Method | Endpoint | Note |")
+                    lines.append("|----------|--------|----------|------|")
+                    for r in items:
+                        ep   = r.get("endpoint","")[:80]
+                        note = r.get("note","")[:120].replace("|","\\|")
+                        lines.append(f"| `{r.get('test_category','')}` | `{r.get('method','')}` | `{ep}` | {note} |")
+                    lines.append("")
+        else:
+            lines.append("### ✅ All Security Tests Passed — No Findings!\n")
+            lines.append("> Zero vulnerabilities detected across Authentication, IDOR, RBAC, Token Tampering, Injection, and Rate Limiting categories.\n")
+
+        lines.append("---")
+        lines.append("### Test Categories\n")
+        cats = {}
+        for r in records:
+            cat = r.get("test_category","unknown")
+            cats.setdefault(cat, {"total":0,"findings":0})
+            cats[cat]["total"] += 1
+            if r.get("finding"):
+                cats[cat]["findings"] += 1
+
+        lines.append("| Category | Tests | Findings | Status |")
+        lines.append("|----------|-------|----------|--------|")
+        for cat, data in cats.items():
+            status = "✅" if data["findings"] == 0 else "❌"
+            lines.append(f"| `{cat}` | {data['total']} | {data['findings']} | {status} |")
+
+        with open(summary_file, "a", encoding="utf-8") as f:
+            f.write("\n".join(lines) + "\n")
+
+        # Exit non-zero to fail the build if CRITICAL or HIGH findings exist
+        if critical or high:
+            print(f"::error::DAST found {len(critical)} CRITICAL and {len(high)} HIGH severity vulnerabilities!")
+            sys.exit(1)
+        else:
+            print(f"DAST passed: {len(passed)}/{len(records)} tests with no HIGH/CRITICAL findings.")
+        PYEOF
+
     - name: Pass / Fail Summary Report
       if: always()
       run: |
-        echo "## Production Validation & Security Report" >> $GITHUB_STEP_SUMMARY
-        echo "### Test Execution Summary" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "---" >> $GITHUB_STEP_SUMMARY
+        echo "### CI Test Suite Results" >> $GITHUB_STEP_SUMMARY
         if [ "${{ steps.dast-test.outcome }}" == "success" ]; then
-          echo "✅ **Backend DAST**: Security tests completed." >> $GITHUB_STEP_SUMMARY
+          echo "✅ **Backend DAST**: Security tests passed." >> $GITHUB_STEP_SUMMARY
         else
-          echo "❌ **Backend DAST**: Security tests failed or encountered errors." >> $GITHUB_STEP_SUMMARY
+          echo "❌ **Backend DAST**: Security tests failed or found vulnerabilities." >> $GITHUB_STEP_SUMMARY
         fi
-        
         if [ "${{ steps.selenium-test.outcome }}" == "success" ]; then
           echo "✅ **Selenium Web E2E**: Web E2E tests completed." >> $GITHUB_STEP_SUMMARY
         else
           echo "❌ **Selenium Web E2E**: Web E2E tests failed." >> $GITHUB_STEP_SUMMARY
         fi
-
         if [ "${{ steps.appium-test.outcome }}" == "success" ]; then
           echo "✅ **Appium Android E2E**: Mobile E2E tests completed." >> $GITHUB_STEP_SUMMARY
         else
           echo "❌ **Appium Android E2E**: Mobile E2E tests failed." >> $GITHUB_STEP_SUMMARY
         fi
-        
+
     - name: Deploy HTML Report to GitHub Pages
       if: always()
       env:
@@ -84,15 +190,28 @@ jobs:
         python convert_report.py
         npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>" --repo "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
-    - name: Upload Test Reports
+    # ── Upload DAST Excel + JSON reports as downloadable artifacts ───────────
+    - name: Upload DAST Security Reports
       if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: omniguard-test-reports
+        name: omniguard-dast-report-${{ github.run_number }}
+        path: |
+          reports/OmniGuard_DAST_Test_Report_v2.xlsx
+          automated_test/report.json
+        retention-days: 30
+
+    - name: Upload All Test Reports
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+        name: omniguard-test-reports-${{ github.run_number }}
         path: |
           reports/OmniGuard_Combined_Test_Report.xlsx
           reports/OmniGuard_DAST_Test_Report_v2.xlsx
           automated_test/report.json
+        retention-days: 30
+
 
 
 

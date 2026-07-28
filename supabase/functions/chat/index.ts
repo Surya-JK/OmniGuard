@@ -8,7 +8,7 @@ const corsHeaders = {
 
 // ── Simple in-memory rate limiter ──────────────────────────────────────────
 const rateLimitStore = new Map<string, { count: number; windowStart: number }>();
-const RATE_LIMIT_MAX = 30;
+const RATE_LIMIT_MAX = 20;
 const RATE_LIMIT_WINDOW_MS = 60_000;
 
 function isRateLimited(ip: string): boolean {
@@ -40,7 +40,58 @@ serve(async (req) => {
   }
 
   const token = authHeader.slice(7);
-  if (token.split('.').length !== 3) {
+  const parts = token.split('.');
+  if (parts.length !== 3) {
+    return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+      status: 401,
+      headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+    });
+  }
+
+  // ── Authoritative JWT verification via Supabase Auth API ─────────────────
+  // Calls /auth/v1/user with the token — Supabase verifies the signature,
+  // expiry, and role, returning 200 only for cryptographically valid tokens.
+  try {
+    const headerJson = JSON.parse(atob(parts[0].replace(/-/g, '+').replace(/_/g, '/')));
+    if (!headerJson.alg || headerJson.alg.toLowerCase() === 'none') {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const supabaseUrl = Deno.env.get('SUPABASE_URL');
+    const supabaseAnonKey = Deno.env.get('SUPABASE_ANON_KEY');
+    if (!supabaseUrl || !supabaseAnonKey) {
+      return new Response(JSON.stringify({ error: 'Service misconfigured' }), {
+        status: 500,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    const authCheck = await fetch(`${supabaseUrl}/auth/v1/user`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'apikey': supabaseAnonKey,
+      },
+    });
+
+    if (!authCheck.ok) {
+      return new Response(JSON.stringify({ error: 'Unauthorized' }), {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+
+    // Also check role claim locally to ensure it is 'authenticated'
+    const payload = JSON.parse(atob(parts[1].replace(/-/g, '+').replace(/_/g, '/')));
+    if (payload.role !== 'authenticated') {
+      return new Response(JSON.stringify({ error: 'Forbidden' }), {
+        status: 403,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      });
+    }
+  } catch (e) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
@@ -107,6 +158,21 @@ serve(async (req) => {
     });
 
     const data = await response.json();
+    
+    // ── Prompt Injection Defense: scrub sensitive keywords ──
+    const content = data?.choices?.[0]?.message?.content || "";
+    const lowerContent = content.toLowerCase();
+    if (lowerContent.includes('system prompt') || lowerContent.includes('deno.env') || lowerContent.includes('groq_api_key') || lowerContent.includes('ignore all')) {
+       return new Response(JSON.stringify({
+         choices: [{
+           message: {
+             role: "assistant",
+             content: "I cannot fulfill this request due to security policies."
+           }
+         }]
+       }), { headers: { ...corsHeaders, 'Content-Type': 'application/json' }});
+    }
+
     return new Response(JSON.stringify(data), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     });

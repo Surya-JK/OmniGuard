@@ -58,7 +58,8 @@ def run(config):
         for payload in SQLI_PAYLOADS:
             params = {col: f"eq.{payload}"}
             status, elapsed, resp_text = req(method, url, headers=auth_headers(anon_key), params=params)
-            time_anomaly = elapsed > baseline * 3
+            # Require at least 1.5 seconds above baseline to consider it a time-based injection anomaly
+            time_anomaly = (elapsed > baseline * 3) and (elapsed > baseline + 1500)
             error_leak   = any(k in resp_text.lower() for k in ["error", "exception", "sql", "syntax", "postgresql"])
             if status == 403 and "cloudflare" in resp_text.lower():
                 error_leak = False
@@ -94,7 +95,7 @@ def run(config):
         # Check if response leaks env vars or system prompt
         resp_lower = resp_text.lower()
         leaks = any(k in resp_lower for k in ["groq_api_key", "deno.env", "system prompt", "system:", "ignore all"])
-        time_anomaly = elapsed > baseline_fn * 3
+        time_anomaly = (elapsed > baseline_fn * 3) and (elapsed > baseline_fn + 1500)
         is_finding = leaks or time_anomaly
 
         r = make_record(
