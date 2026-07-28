@@ -47,11 +47,24 @@ jobs:
         config_path = "automated_test/input.json"
         with open(config_path) as f:
             cfg = json.load(f)
-        cfg["baseUrl"]  = os.environ["SUPABASE_URL"]
-        cfg["anonKey"]  = os.environ["SUPABASE_ANON_KEY"]
+        
+        url = os.environ.get("SUPABASE_URL", "").strip()
+        key = os.environ.get("SUPABASE_ANON_KEY", "").strip()
+        
+        if url:
+            cfg["baseUrl"] = url
+            print(f"[OK] input.json baseUrl set from secret: {url}")
+        else:
+            print(f"[INFO] SUPABASE_URL secret is empty, keeping default: {cfg.get('baseUrl')}")
+            
+        if key:
+            cfg["anonKey"] = key
+            print("[OK] input.json anonKey set from secret")
+        else:
+            print("[INFO] SUPABASE_ANON_KEY secret is empty, keeping default")
+            
         with open(config_path, "w") as f:
             json.dump(cfg, f, indent=2)
-        print(f"[OK] input.json updated with SUPABASE_URL={os.environ['SUPABASE_URL']}")
         EOF
 
     # ── Remove any stale savepoint so all tests always run fresh ─────────────
