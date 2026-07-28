@@ -77,6 +77,11 @@ jobs:
         python automated_test/runner.py
         python generate_dast_excel.py
 
+    - name: Run Baseline/Load Testing
+      id: load-test
+      run: |
+        python automated_test/load_test.py
+
     - name: Run Selenium E2E Testing
       id: selenium-test
       run: python tests/selenium/generate_mock_results.py
@@ -194,6 +199,11 @@ jobs:
         else
           echo "❌ **Appium Android E2E**: Mobile E2E tests failed." >> $GITHUB_STEP_SUMMARY
         fi
+        if [ "${{ steps.load-test.outcome }}" == "success" ]; then
+          echo "✅ **Baseline/Load Testing**: Concurrency load tests completed." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "❌ **Baseline/Load Testing**: Concurrency load tests failed." >> $GITHUB_STEP_SUMMARY
+        fi
 
     - name: Deploy HTML Report to GitHub Pages
       if: always()
@@ -222,6 +232,7 @@ jobs:
         path: |
           reports/OmniGuard_Combined_Test_Report.xlsx
           reports/OmniGuard_DAST_Test_Report_v2.xlsx
+          reports/OmniGuard_Load_Test_Report.xlsx
           automated_test/report.json
         retention-days: 30
 
