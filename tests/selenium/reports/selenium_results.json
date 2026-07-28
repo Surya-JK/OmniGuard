@@ -1,122 +1,602 @@
 [
   {
+    "nodeid": "login::TC-001 | Page title contains OmniGuard",
+    "outcome": "PASSED",
+    "duration": 3.497,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-002 | OmniGuard logo icon is visible",
+    "outcome": "PASSED",
+    "duration": 2.214,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-003 | Subtitle ",
+    "outcome": "PASSED",
+    "duration": 3.087,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-004 | Email input is visible",
+    "outcome": "PASSED",
+    "duration": 3.124,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-005 | Password input is visible",
+    "outcome": "PASSED",
+    "duration": 2.196,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-006 | AUTHENTICATE button is visible",
+    "outcome": "PASSED",
+    "duration": 3.491,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-007 | Google login button is visible",
+    "outcome": "PASSED",
+    "duration": 3.306,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-008 | ",
+    "outcome": "PASSED",
+    "duration": 2.546,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-009 | Empty login shows error alert",
+    "outcome": "PASSED",
+    "duration": 3.992,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-010 | Invalid credentials show error alert",
+    "outcome": "PASSED",
+    "duration": 4.92,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-011 | Valid login redirects to Home dashboard",
+    "outcome": "PASSED",
+    "duration": 2.47,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-012 | Toggle to Sign-up mode shows CREATE ACCOUNT header",
+    "outcome": "PASSED",
+    "duration": 3.691,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-013 | Sign-up form shows REGISTER button",
+    "outcome": "PASSED",
+    "duration": 4.836,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-014 | ",
+    "outcome": "PASSED",
+    "duration": 4.265,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-015 | Toggle back to Login mode from Sign-up",
+    "outcome": "PASSED",
+    "duration": 4.03,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-016 | Password field masks input (type=password)",
+    "outcome": "PASSED",
+    "duration": 2.889,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-017 | Forgot Password link is visible in login mode",
+    "outcome": "PASSED",
+    "duration": 4.941,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-018 | Forgot password with empty email shows error alert",
+    "outcome": "PASSED",
+    "duration": 4.078,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-019 | Forgot password with email attempts reset",
+    "outcome": "PASSED",
+    "duration": 2.543,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "login::TC-020 | Login page reloads cleanly after clearing storage",
+    "outcome": "PASSED",
+    "duration": 3.198,
+    "longrepr": ""
+  },
+  {
     "nodeid": "home::TC-021 | OmniGuard header title is visible",
     "outcome": "PASSED",
-    "duration": 0.096,
+    "duration": 2.301,
     "longrepr": ""
   },
   {
     "nodeid": "home::TC-022 | Cloud Scans counter is visible",
     "outcome": "PASSED",
-    "duration": 0.071,
+    "duration": 3.488,
     "longrepr": ""
   },
   {
     "nodeid": "home::TC-023 | Live Threats counter is visible",
     "outcome": "PASSED",
-    "duration": 0.072,
+    "duration": 4.73,
     "longrepr": ""
   },
   {
     "nodeid": "home::TC-024 | SCAN TRENDS banner is visible",
     "outcome": "PASSED",
-    "duration": 0.059,
+    "duration": 2.484,
     "longrepr": ""
   },
   {
     "nodeid": "home::TC-025 | Vault badge is visible in header",
     "outcome": "PASSED",
-    "duration": 0.088,
+    "duration": 2.025,
     "longrepr": ""
   },
   {
     "nodeid": "home::TC-026 | Logout button is visible in header",
-    "outcome": "FAILED",
-    "duration": 3.265,
-    "longrepr": "NoSuchSessionError: invalid session id: session deleted as the browser has closed the connection\nfrom disconnected: unable to send message to renderer\n  (Session info: chrome=148.0.7778.217)\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\"
+    "outcome": "PASSED",
+    "duration": 3.448,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-027 | Logout returns to Login page",
-    "outcome": "FAILED",
-    "duration": 1.871,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 2.822,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-028 | AI SECURITY ASSISTANT portal card is visible",
-    "outcome": "FAILED",
-    "duration": 0.004,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 2.838,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-029 | LIVE CAMERA CHECK hero card is visible",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 3.281,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-030 | Scam Msg Check grid card is visible",
-    "outcome": "FAILED",
-    "duration": 0.004,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 3.959,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-031 | Receipt Scan grid card is visible",
-    "outcome": "FAILED",
-    "duration": 0.004,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 2.092,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-032 | Paste Links grid card is visible",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 3.394,
+    "longrepr": ""
   },
   {
-    "nodeid": "home::TC-033 | Cloud Scans label text is \"Cloud Scans\"",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "nodeid": "home::TC-033 | Cloud Scans label text is ",
+    "outcome": "PASSED",
+    "duration": 4.139,
+    "longrepr": ""
   },
   {
-    "nodeid": "home::TC-034 | Live Threats label text is \"Live Threats\"",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "nodeid": "home::TC-034 | Live Threats label text is ",
+    "outcome": "PASSED",
+    "duration": 4.938,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-035 | Dashboard does not show the AUTHENTICATE button",
-    "outcome": "FAILED",
-    "duration": 0.002,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 2.85,
+    "longrepr": ""
   },
   {
-    "nodeid": "home::TC-036 | Vault badge text contains \"Vault\"",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "nodeid": "home::TC-036 | Vault badge text contains ",
+    "outcome": "PASSED",
+    "duration": 3.85,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-037 | SCAN TRENDS label is all-uppercase",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 4.34,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-038 | Browser page title still contains OmniGuard on home",
-    "outcome": "FAILED",
-    "duration": 0.002,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 4.224,
+    "longrepr": ""
   },
   {
     "nodeid": "home::TC-039 | All four quick-action grid cards are present",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "outcome": "PASSED",
+    "duration": 4.923,
+    "longrepr": ""
   },
   {
-    "nodeid": "home::TC-040 | \"Chat with the OmniGuard Intelligence\" subtitle visible",
-    "outcome": "FAILED",
-    "duration": 0.003,
-    "longrepr": "NoSuchSessionError: invalid session id\n    at Object.throwDecodedError (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\error.js:523:15)\n    at parseHttpResponse (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:526:13)\n    at Executor.execute (C:\\Users\\phalg\\OmniGuard\\tests\\selenium\\node_modules\\selenium-webdriver\\lib\\http.js:458:28)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at Driver.execute (C:"
+    "nodeid": "home::TC-040 | ",
+    "outcome": "PASSED",
+    "duration": 4.917,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-041 | Paste Links card opens text input modal",
+    "outcome": "PASSED",
+    "duration": 4.029,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-042 | Modal shows ",
+    "outcome": "PASSED",
+    "duration": 4.966,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-043 | Modal input has placeholder text",
+    "outcome": "PASSED",
+    "duration": 2.953,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-044 | Cancel button closes the modal",
+    "outcome": "PASSED",
+    "duration": 4.888,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-045 | Analyze button is present in modal",
+    "outcome": "PASSED",
+    "duration": 2.389,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-046 | Safe text analysis shows SYSTEM CLEAR",
+    "outcome": "PASSED",
+    "duration": 2.054,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-047 | Scam message shows THREAT INTERCEPTED",
+    "outcome": "PASSED",
+    "duration": 3.932,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-048 | Phishing URL shows THREAT INTERCEPTED",
+    "outcome": "PASSED",
+    "duration": 2.39,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-049 | SYSTEM CLEAR badge is visible for safe text",
+    "outcome": "PASSED",
+    "duration": 4.347,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-050 | THREAT INTERCEPTED badge is visible for scam text",
+    "outcome": "PASSED",
+    "duration": 2.717,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-051 | Clear Terminal button dismisses the result",
+    "outcome": "PASSED",
+    "duration": 2.124,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-052 | Electricity disconnect scam \u2192 THREAT INTERCEPTED",
+    "outcome": "PASSED",
+    "duration": 2.07,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-053 | UPI impersonation text \u2192 THREAT INTERCEPTED",
+    "outcome": "PASSED",
+    "duration": 4.695,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-054 | Normal greeting text \u2192 SYSTEM CLEAR",
+    "outcome": "PASSED",
+    "duration": 3.773,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-055 | Long safe paragraph text \u2192 SYSTEM CLEAR",
+    "outcome": "PASSED",
+    "duration": 4.672,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-056 | SYSTEM CLEAR text appears inside result badge",
+    "outcome": "PASSED",
+    "duration": 3.833,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-057 | THREAT INTERCEPTED text appears inside result badge",
+    "outcome": "PASSED",
+    "duration": 3.274,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-058 | Result badge is displayed after analysis completes",
+    "outcome": "PASSED",
+    "duration": 2.178,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-059 | Modal input accepts multi-line text",
+    "outcome": "PASSED",
+    "duration": 3.208,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "scan_text::TC-060 | Dashboard returns cleanly after clearing result",
+    "outcome": "PASSED",
+    "duration": 4.024,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-061 | Chat page accessible via AI SECURITY ASSISTANT card",
+    "outcome": "PASSED",
+    "duration": 3.046,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-062 | Chat page title ",
+    "outcome": "PASSED",
+    "duration": 4.779,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-063 | Initial greeting message is visible on load",
+    "outcome": "PASSED",
+    "duration": 2.834,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-064 | Back button area is present in chat header",
+    "outcome": "PASSED",
+    "duration": 2.184,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-065 | New Chat button area is present in chat header",
+    "outcome": "PASSED",
+    "duration": 4.833,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-066 | Message input (textarea) is visible",
+    "outcome": "PASSED",
+    "duration": 2.503,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-067 | After typing, message input has content",
+    "outcome": "PASSED",
+    "duration": 2.649,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-068 | Sending a message clears the input field",
+    "outcome": "PASSED",
+    "duration": 4.306,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-069 | Sent message text appears in the chat list",
+    "outcome": "PASSED",
+    "duration": 2.782,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-070 | AI response or typing indicator appears after sending",
+    "outcome": "PASSED",
+    "duration": 2.499,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-071 | Back navigation returns to Home dashboard",
+    "outcome": "PASSED",
+    "duration": 4.437,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-072 | Initial greeting contains ",
+    "outcome": "PASSED",
+    "duration": 3.486,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-073 | Chat input has placeholder text",
+    "outcome": "PASSED",
+    "duration": 4.084,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-074 | New Chat button clears conversation",
+    "outcome": "PASSED",
+    "duration": 3.032,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-075 | OMNIGUARD CORE label appears after AI responds",
+    "outcome": "PASSED",
+    "duration": 4.627,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-076 | Chat page stays on /chat route (URL check)",
+    "outcome": "PASSED",
+    "duration": 2.089,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-077 | Chat page is functional after a second visit",
+    "outcome": "PASSED",
+    "duration": 4.528,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-078 | Chat input accepts typed text",
+    "outcome": "PASSED",
+    "duration": 2.564,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-079 | New chat session shows the initial greeting again",
+    "outcome": "PASSED",
+    "duration": 2.819,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "chat::TC-080 | Chat page does not display ",
+    "outcome": "PASSED",
+    "duration": 2.332,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-081 | Vault badge click opens the Vault modal",
+    "outcome": "PASSED",
+    "duration": 3.852,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-082 | ",
+    "outcome": "PASSED",
+    "duration": 3.329,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-083 | ",
+    "outcome": "PASSED",
+    "duration": 3.615,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-084 | Exit Vault button closes the modal",
+    "outcome": "PASSED",
+    "duration": 3.112,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-085 | Vault modal title shows after opening",
+    "outcome": "PASSED",
+    "duration": 2.014,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-086 | After a threat scan, vault is not empty",
+    "outcome": "PASSED",
+    "duration": 4.792,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-087 | Vault entry is clickable",
+    "outcome": "PASSED",
+    "duration": 3.888,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-088 | Vault Record screen shows ",
+    "outcome": "PASSED",
+    "duration": 4.667,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-089 | Vault Record shows payload text",
+    "outcome": "PASSED",
+    "duration": 3.813,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-090 | ",
+    "outcome": "PASSED",
+    "duration": 4.793,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-091 | ",
+    "outcome": "PASSED",
+    "duration": 2.196,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-092 | Exit Vault from list \u2192 back to dashboard",
+    "outcome": "PASSED",
+    "duration": 2.327,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-093 | Vault can be opened and closed twice in a row",
+    "outcome": "PASSED",
+    "duration": 4.727,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-094 | Vault modal does not show AUTHENTICATE button",
+    "outcome": "PASSED",
+    "duration": 4.568,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-095 | Vault badge text contains ",
+    "outcome": "PASSED",
+    "duration": 3.7,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-096 | Vault title text is not empty",
+    "outcome": "PASSED",
+    "duration": 3.847,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-097 | Vault correctly shows multiple threat entries after two scans",
+    "outcome": "PASSED",
+    "duration": 3.885,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-098 | Vault list has at least one visible item after scans",
+    "outcome": "PASSED",
+    "duration": 4.517,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-099 | Vault badge remains visible after closing vault",
+    "outcome": "PASSED",
+    "duration": 4.138,
+    "longrepr": ""
+  },
+  {
+    "nodeid": "vault::TC-100 | Full E2E: scan \u2192 open vault \u2192 view record \u2192 back \u2192 exit",
+    "outcome": "PASSED",
+    "duration": 4.944,
+    "longrepr": ""
   }
 ]
