@@ -31,6 +31,10 @@ def main():
         "response_time_ms": "Response Time (ms)"
     }
     
+    # Map finding to PASS / FAIL (False means no finding -> Pass, True means finding -> Fail)
+    if "finding" in df.columns:
+        df["finding"] = df["finding"].map({True: "FAIL", False: "PASS"})
+
     # Select and rename columns
     df = df[[col for col in column_mapping.keys() if col in df.columns]]
     df = df.rename(columns=column_mapping)
@@ -57,3 +61,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
