@@ -139,6 +139,9 @@ def run_load_test():
 
     df_metrics = pd.DataFrame(report_data)
     
+    # Map boolean success to PASS/FAIL strings
+    df["success"] = df["success"].map({True: "PASS", False: "FAIL"})
+    
     # Also save raw request logs as a secondary sheet for transparency
     df_raw = df.rename(columns={
         "timestamp": "Timestamp (Unix)",
