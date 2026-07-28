@@ -22,6 +22,9 @@ jobs:
       with:
         node-version: '18.x'
 
+    - name: Install App Dependencies
+      run: npm install
+
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
@@ -205,13 +208,23 @@ jobs:
           echo "❌ **Baseline/Load Testing**: Concurrency load tests failed." >> $GITHUB_STEP_SUMMARY
         fi
 
-    - name: Deploy HTML Report to GitHub Pages
+    - name: Deploy App and HTML Report to GitHub Pages
       if: always()
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
+        # 1. Build the actual Expo Web application (outputs to dist/)
+        npm run build
+        
+        # 2. Build the HTML test report (outputs to report-build/)
         python convert_report.py
-        npx gh-pages -d report-build -u "github-actions-bot <support+actions@github.com>" --repo "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
+        
+        # 3. Nest the test report inside the main app's directory structure
+        mkdir -p dist/report
+        cp report-build/index.html dist/report/index.html
+        
+        # 4. Deploy the combined dist/ directory to gh-pages
+        npx gh-pages -d dist -u "github-actions-bot <support+actions@github.com>" --repo "https://x-access-token:${GITHUB_TOKEN}@github.com/${{ github.repository }}.git"
 
     # ── Upload DAST Excel + JSON reports as downloadable artifacts ───────────
     - name: Upload DAST Security Reports
