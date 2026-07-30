@@ -19,19 +19,7 @@ if (Platform.OS === 'web') {
 // Keep the splash screen visible while we fetch resources
 SplashScreen.preventAutoHideAsync();
 
-// Inject Ionicons font face for web environments using a highly reliable CDN
-if (Platform.OS === 'web' && typeof document !== 'undefined') {
-  const iconFontStyles = `
-    @font-face {
-      font-family: 'ionicons';
-      src: url('https://unpkg.com/react-native-vector-icons@10.0.0/Fonts/Ionicons.ttf') format('truetype');
-    }
-  `;
-  const style = document.createElement('style');
-  style.type = 'text/css';
-  style.appendChild(document.createTextNode(iconFontStyles));
-  document.head.appendChild(style);
-}
+// Removed manual CDN injection as expo-font handles it natively
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
