@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, ActivityIndicator, KeyboardAvoidingView, Platform, Alert, Keyboard, Animated, Dimensions, Easing } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../components/Icon';
 import * as Linking from 'expo-linking';
 import * as WebBrowser from 'expo-web-browser';
 
@@ -258,7 +258,7 @@ export default function LoginScreen() {
             <KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={{ flex: 1 }}>
                 <View style={styles.formContainer}>
                <View style={{ alignItems: 'center', marginBottom: 40 }}>
-                   <Ionicons name="shield-checkmark" size={64} color="#0A84FF" style={{ marginBottom: 15 }} />
+                   <Icon name="shield-checkmark" size={64} color="#0A84FF" style={{ marginBottom: 15 }} />
                    <Text style={styles.title}>OmniGuard</Text>
                    <Text style={styles.subtitle}>Decentralized Threat Intelligence</Text>
                </View>
@@ -269,10 +269,10 @@ export default function LoginScreen() {
                            <View style={styles.glassCard}>
                                <Text style={styles.cardHeader}>RESET PASSWORD</Text>
                                <View style={styles.inputWrapper}>
-                                   <Ionicons name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
+                                   <Icon name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
                                    <TextInput style={[styles.input, Platform.OS === 'web' && { outlineStyle: 'none' } as any]} placeholder="Enter new password" placeholderTextColor="#8E8E93" value={newPassword} onChangeText={setNewPassword} secureTextEntry={!showPassword} />
                                    <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ padding: 10 }}>
-                                       <Ionicons name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
+                                       <Icon name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
                                    </TouchableOpacity>
                                </View>
                                <AnimatedScaleButton style={styles.primaryButton} onPress={handleUpdatePassword} disabled={loading}>
@@ -287,14 +287,14 @@ export default function LoginScreen() {
                        <View style={styles.glassCard}>
                            <Text style={styles.cardHeader}>MEMBER LOGIN</Text>
                            <View style={styles.inputWrapper}>
-                               <Ionicons name="mail" size={20} color="#8E8E93" style={styles.inputIcon} />
+                               <Icon name="mail" size={20} color="#8E8E93" style={styles.inputIcon} />
                                <TextInput style={[styles.input, Platform.OS === 'web' && { outlineStyle: 'none' } as any]} placeholder="Email Address" placeholderTextColor="#8E8E93" value={email} onChangeText={setEmail} autoCapitalize="none" keyboardType="email-address" />
                            </View>
                            <View style={styles.inputWrapper}>
-                               <Ionicons name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
+                               <Icon name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
                                <TextInput style={[styles.input, Platform.OS === 'web' && { outlineStyle: 'none' } as any]} placeholder="Password" placeholderTextColor="#8E8E93" value={password} onChangeText={setPassword} secureTextEntry={!showPassword} />
                                <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ padding: 10 }}>
-                                   <Ionicons name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
+                                   <Icon name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
                                </TouchableOpacity>
                            </View>
                             <TouchableOpacity style={{ alignSelf: 'flex-end', marginBottom: 20, marginTop: -5 }} onPress={handleForgotPassword}>
@@ -311,7 +311,7 @@ export default function LoginScreen() {
                            </View>
 
                            <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
-                               <Ionicons name="logo-google" size={18} color="#fff" style={{ marginRight: 10 }} />
+                               <Icon name="logo-google" size={18} color="#fff" style={{ marginRight: 10 }} />
                                <Text style={styles.googleButtonText}>Continue with Google</Text>
                            </TouchableOpacity>
 
@@ -328,14 +328,14 @@ export default function LoginScreen() {
                        <View style={styles.glassCard}>
                            <Text style={styles.cardHeader}>CREATE ACCOUNT</Text>
                            <View style={styles.inputWrapper}>
-                               <Ionicons name="mail" size={20} color="#8E8E93" style={styles.inputIcon} />
+                               <Icon name="mail" size={20} color="#8E8E93" style={styles.inputIcon} />
                                <TextInput style={[styles.input, Platform.OS === 'web' && { outlineStyle: 'none' } as any]} placeholder="Email Address" placeholderTextColor="#8E8E93" value={email} onChangeText={setEmail} autoCapitalize="none" keyboardType="email-address" />
                            </View>
                            <View style={styles.inputWrapper}>
-                               <Ionicons name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
+                               <Icon name="lock-closed" size={20} color="#8E8E93" style={styles.inputIcon} />
                                <TextInput style={[styles.input, Platform.OS === 'web' && { outlineStyle: 'none' } as any]} placeholder="Password" placeholderTextColor="#8E8E93" value={password} onChangeText={setPassword} secureTextEntry={!showPassword} />
                                <TouchableOpacity onPress={() => setShowPassword(!showPassword)} style={{ padding: 10 }}>
-                                   <Ionicons name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
+                                   <Icon name={showPassword ? "eye-off" : "eye"} size={20} color="#8E8E93" />
                                </TouchableOpacity>
                            </View>
                            <AnimatedScaleButton style={styles.primaryButton} onPress={handleAuth} disabled={loading}>
@@ -349,7 +349,7 @@ export default function LoginScreen() {
                            </View>
 
                            <TouchableOpacity style={styles.googleButton} onPress={handleGoogleLogin}>
-                               <Ionicons name="logo-google" size={18} color="#fff" style={{ marginRight: 10 }} />
+                               <Icon name="logo-google" size={18} color="#fff" style={{ marginRight: 10 }} />
                                <Text style={styles.googleButtonText}>Continue with Google</Text>
                            </TouchableOpacity>
 

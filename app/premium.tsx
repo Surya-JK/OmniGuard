@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+﻿import React, { useRef } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, ScrollView, SafeAreaView, Platform, Linking, Alert, Animated } from 'react-native';
 import { BlurView } from 'expo-blur';
 import { LinearGradient } from 'expo-linear-gradient';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../components/Icon';
 // --- SUPABASE ---
 import { supabase } from '../lib/supabaseClient';
 
@@ -99,7 +99,7 @@ export default function PremiumScreen() {
             <SafeAreaView style={{ flex: 1 }}>
                 <View style={styles.header}>
                     <PressBtn onPress={() => { Haptics.impactAsync(); router.back(); }} style={styles.backButton}>
-                        <Ionicons name="arrow-back" size={24} color="#F8FAFC" />
+                        <Icon name="arrow-back" size={24} color="#F8FAFC" />
                     </PressBtn>
                     <Text style={styles.headerTitle}>Upgrade to PRO</Text>
                     <View style={{ width: 24 }} />
@@ -108,7 +108,7 @@ export default function PremiumScreen() {
                 <ScrollView contentContainerStyle={styles.scrollContent} showsVerticalScrollIndicator={false}>
                     
                     <View style={styles.iconContainer}>
-                        <Ionicons name="diamond" size={80} color="#FBBF24" />
+                        <Icon name="diamond" size={80} color="#FBBF24" />
                     </View>
 
                     <Text style={styles.title}>OmniGuard <Text style={{ color: '#FBBF24' }}>PRO</Text></Text>
@@ -135,12 +135,12 @@ export default function PremiumScreen() {
                             <PressBtn style={styles.upgradeButton} onPress={handleUpgrade}>
                                 <LinearGradient colors={['#FBBF24', '#D97706']} style={StyleSheet.absoluteFillObject} start={{x: 0, y: 0}} end={{x: 1, y: 1}} />
                                 <Text style={styles.upgradeButtonText}>UPGRADE NOW</Text>
-                                <Ionicons name="sparkles" size={18} color="#fff" style={{ marginLeft: 8 }} />
+                                <Icon name="sparkles" size={18} color="#fff" style={{ marginLeft: 8 }} />
                             </PressBtn>
                         ) : (
                             <PressBtn style={[styles.upgradeButton, { backgroundColor: '#10B981' }]} onPress={verifyAndUnlock}>
                                 <Text style={styles.upgradeButtonText}>VERIFY PAYMENT</Text>
-                                <Ionicons name="checkmark-circle" size={18} color="#fff" style={{ marginLeft: 8 }} />
+                                <Icon name="checkmark-circle" size={18} color="#fff" style={{ marginLeft: 8 }} />
                             </PressBtn>
                         )}
                     </BlurView>
@@ -155,7 +155,7 @@ export default function PremiumScreen() {
 const FeatureItem = ({ icon, title, desc }: { icon: any, title: string, desc: string }) => (
     <View style={styles.featureItem}>
         <View style={styles.featureIconBox}>
-            <Ionicons name={icon} size={20} color="#FBBF24" />
+            <Icon name={icon} size={20} color="#FBBF24" />
         </View>
         <View style={styles.featureTextContainer}>
             <Text style={styles.featureTitle}>{title}</Text>

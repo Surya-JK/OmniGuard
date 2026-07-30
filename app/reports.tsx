@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, SafeAreaView, Platform } from 'react-native';
 import { BlurView } from 'expo-blur';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../components/Icon';
 import { useRouter } from 'expo-router';
 import * as Haptics from 'expo-haptics';
 
@@ -23,7 +23,7 @@ export default function ReportsScreen() {
     <SafeAreaView style={styles.container}>
       <View style={styles.header}>
         <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); router.back(); }} style={styles.backButton}>
-          <Ionicons name="arrow-back" size={24} color="#0A84FF" />
+          <Icon name="arrow-back" size={24} color="#0A84FF" />
           <Text style={styles.backText}>Home</Text>
         </TouchableOpacity>
         <Text style={styles.title}>E2E Test Reports</Text>
@@ -34,14 +34,14 @@ export default function ReportsScreen() {
           style={[styles.tab, activeTab === 'selenium' && styles.activeTab]} 
           onPress={() => { Haptics.selectionAsync(); setActiveTab('selenium'); }}
         >
-          <Ionicons name="globe-outline" size={18} color={activeTab === 'selenium' ? '#fff' : '#636366'} style={{marginRight: 6}} />
+          <Icon name="globe-outline" size={18} color={activeTab === 'selenium' ? '#fff' : '#636366'} style={{marginRight: 6}} />
           <Text style={[styles.tabText, activeTab === 'selenium' && styles.activeTabText]}>Web (Selenium)</Text>
         </TouchableOpacity>
         <TouchableOpacity 
           style={[styles.tab, activeTab === 'appium' && styles.activeTab]} 
           onPress={() => { Haptics.selectionAsync(); setActiveTab('appium'); }}
         >
-          <Ionicons name="phone-portrait-outline" size={18} color={activeTab === 'appium' ? '#fff' : '#636366'} style={{marginRight: 6}} />
+          <Icon name="phone-portrait-outline" size={18} color={activeTab === 'appium' ? '#fff' : '#636366'} style={{marginRight: 6}} />
           <Text style={[styles.tabText, activeTab === 'appium' && styles.activeTabText]}>Mobile (Appium)</Text>
         </TouchableOpacity>
       </View>
@@ -70,7 +70,7 @@ export default function ReportsScreen() {
           <View key={index} style={[styles.testItem, {borderColor: test.outcome === 'PASSED' ? 'rgba(0, 255, 157, 0.2)' : 'rgba(239, 68, 68, 0.2)'}]}>
             <View style={styles.testHeader}>
               <View style={styles.testTitleContainer}>
-                <Ionicons 
+                <Icon 
                   name={test.outcome === 'PASSED' ? "checkmark-circle" : "close-circle"} 
                   size={20} 
                   color={test.outcome === 'PASSED' ? '#00FF9D' : '#EF4444'} 

@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useCallback } from 'react';
+﻿import { useState, useEffect, useRef, useCallback } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity, Image, ActivityIndicator, ScrollView, Alert, Animated, Easing, Modal, FlatList, TextInput, Platform, RefreshControl } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useShareIntent } from 'expo-share-intent';
@@ -13,7 +13,7 @@ import * as ImagePicker from 'expo-image-picker';
 import { LinearGradient } from 'expo-linear-gradient';
 import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../components/Icon';
 
 // --- SUPABASE ---
 import { supabase } from '../lib/supabaseClient';
@@ -708,7 +708,7 @@ export default function App() {
         {/* FLOATING HEADER */}
         <View style={styles.floatingHeader}>
             <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                <Ionicons name="shield-checkmark" size={24} color="#00F0FF" style={{ marginRight: 10 }} />
+                <Icon name="shield-checkmark" size={24} color="#00F0FF" style={{ marginRight: 10 }} />
                 <Text style={styles.title}>OmniGuard</Text>
             </View>
             <View style={{flexDirection: 'row', alignItems: 'center', gap: 10}}>
@@ -716,14 +716,14 @@ export default function App() {
                     Haptics.impactAsync();
                     await supabase.auth.signOut();
                 }} style={[styles.vaultBadge, {borderColor: 'rgba(239, 68, 68, 0.3)', paddingHorizontal: 8}]}>
-                    <Ionicons name="log-out-outline" size={14} color="#EF4444" />
+                    <Icon name="log-out-outline" size={14} color="#EF4444" />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); router.push('/reports'); }} style={styles.vaultBadge}>
-                    <Ionicons name="document-text-outline" size={12} color="#00F0FF" style={{ marginRight: 6 }} />
+                    <Icon name="document-text-outline" size={12} color="#00F0FF" style={{ marginRight: 6 }} />
                     <Text style={[styles.vaultBadgeText, { color: '#00F0FF' }]}>Reports</Text>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); setIsHistoryModalVisible(true); }} style={styles.vaultBadge}>
-                    <Ionicons name="server-outline" size={12} color="#CBD5E1" style={{ marginRight: 6 }} />
+                    <Icon name="server-outline" size={12} color="#CBD5E1" style={{ marginRight: 6 }} />
                     <Text style={styles.vaultBadgeText}>Vault ({threatHistory.length})</Text>
                 </TouchableOpacity>
             </View>
@@ -759,7 +759,7 @@ export default function App() {
                <LinearGradient colors={['rgba(255,255,255,0.05)', 'rgba(0,0,0,0.5)']} style={styles.bentoCardHero}>
                  <BlurView intensity={20} tint="dark" style={StyleSheet.absoluteFillObject} />
                  <View style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 8 }}>
-                   <Ionicons name="bulb" size={16} color="#FCD34D" style={{ marginRight: 8 }} />
+                   <Icon name="bulb" size={16} color="#FCD34D" style={{ marginRight: 8 }} />
                    <Text style={styles.bannerTitle}>SCAN TRENDS</Text>
                  </View>
                  <Text style={styles.bannerText} numberOfLines={2}>{currentTrend}</Text>
@@ -820,7 +820,7 @@ export default function App() {
                  <BentoScaleButton style={styles.bentoHero} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); scanSourceRef.current = 'DOCUMENT'; setScanMode('TEXT'); setIsCameraOpen(true); }}>
                    <BlurView intensity={20} tint="dark" style={styles.bentoHeroBlur}>
                      <View style={styles.bentoHeroInner}>
-                       <Ionicons name="scan-circle" size={48} color="#0A84FF" />
+                       <Icon name="scan-circle" size={48} color="#0A84FF" />
                        <View>
                            <Text style={styles.bentoHeroTitle}>LIVE CAMERA CHECK</Text>
                            <Text style={styles.bentoHeroSub}>Scan Document or QR Code</Text>
@@ -833,7 +833,7 @@ export default function App() {
                  <View style={styles.bentoAsymmGrid}>
                     <BentoScaleButton style={styles.bentoTallCard} onPress={() => pickImageFromGallery('SCAM_MESSAGE')}>
                        <BlurView intensity={20} tint="dark" style={styles.bentoCardInner}>
-                           <Ionicons name="chatbubble-ellipses" size={42} color="#0A84FF" style={{ marginBottom: 20 }} />
+                           <Icon name="chatbubble-ellipses" size={42} color="#0A84FF" style={{ marginBottom: 20 }} />
                            <Text style={styles.gridCardTitle}>Scam Msg Check</Text>
                            <Text style={styles.gridCardSub}>Analyze image</Text>
                        </BlurView>
@@ -842,7 +842,7 @@ export default function App() {
                     <View style={styles.bentoRightCol}>
                         <BentoScaleButton style={styles.bentoShortCard} onPress={() => pickImageFromGallery('RECEIPT')}>
                            <BlurView intensity={20} tint="dark" style={[styles.bentoCardInner, {flexDirection: 'row', gap: 15, paddingHorizontal: 20}]}>
-                               <Ionicons name="receipt" size={32} color="#0A84FF" />
+                               <Icon name="receipt" size={32} color="#0A84FF" />
                                <View style={{flex: 1, justifyContent: 'center'}}>
                                    <Text style={styles.gridCardTitle} numberOfLines={1}>Receipt Scan</Text>
                                    <Text style={styles.gridCardSub} numberOfLines={1}>Detect forgery</Text>
@@ -851,7 +851,7 @@ export default function App() {
                         </BentoScaleButton>
                         <BentoScaleButton style={styles.bentoShortCard} onPress={() => { Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light); scanSourceRef.current = 'LINK_TEXT'; setIsTextInputModalVisible(true) }}>
                            <BlurView intensity={20} tint="dark" style={[styles.bentoCardInner, {flexDirection: 'row', gap: 15, paddingHorizontal: 20}]}>
-                               <Ionicons name="link" size={32} color="#0A84FF" />
+                               <Icon name="link" size={32} color="#0A84FF" />
                                <View style={{flex: 1, justifyContent: 'center'}}>
                                    <Text style={styles.gridCardTitle} numberOfLines={1}>Paste Links</Text>
                                    <Text style={styles.gridCardSub} numberOfLines={1}>Direct lookup</Text>
@@ -867,13 +867,13 @@ export default function App() {
                     <LinearGradient colors={['#2563EB', '#1E3A8A']} style={StyleSheet.absoluteFillObject} />
                     <View style={{flexDirection: 'row', alignItems: 'center', gap: 20, paddingHorizontal: 25, paddingVertical: 20}}>
                         <View style={{ backgroundColor: 'rgba(255,255,255,0.15)', padding: 12, borderRadius: 20 }}>
-                          <Ionicons name="shield-half" size={32} color="#fff" />
+                          <Icon name="shield-half" size={32} color="#fff" />
                         </View>
                         <View style={{flex: 1}}>
                             <Text style={styles.portalTitle}>AI SECURITY ASSISTANT</Text>
                             <Text style={styles.portalSub}>Chat with the OmniGuard Intelligence</Text>
                         </View>
-                        <Ionicons name="arrow-forward" size={28} color="#93C5FD" />
+                        <Icon name="arrow-forward" size={28} color="#93C5FD" />
                     </View>
                  </BentoScaleButton>
 

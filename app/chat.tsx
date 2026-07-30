@@ -1,10 +1,10 @@
-import React, { useState, useRef, useEffect } from 'react';
+﻿import React, { useState, useRef, useEffect } from 'react';
 import { StyleSheet, Text, View, TextInput, TouchableOpacity, FlatList, ActivityIndicator, Alert, KeyboardAvoidingView, Platform, Keyboard, Animated, ScrollView } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { BlurView } from 'expo-blur';
 import * as Haptics from 'expo-haptics';
 import { useRouter } from 'expo-router';
-import { Ionicons } from '@expo/vector-icons';
+import { Icon } from '../components/Icon';
 
 // --- SUPABASE ---
 import { supabase } from '../lib/supabaseClient';
@@ -48,13 +48,13 @@ const AnimatedMessage = React.memo(({ item, isUser, handleReport }: any) => {
     <Animated.View style={[styles.messageCard, isUser ? styles.userCard : styles.assistantCard, { opacity: fadeAnim, transform: [{ translateY: slideAnim }] }]}>
       {!isUser ? (
         <View style={styles.cardHeader}>
-           <Ionicons name="shield-checkmark" size={16} color="#0A84FF" />
+           <Icon name="shield-checkmark" size={16} color="#0A84FF" />
            <Text style={styles.assistantLabel}>OMNIGUARD CORE</Text>
         </View>
       ) : (
         <View style={[styles.cardHeader, { justifyContent: 'flex-end' }]}>
            <Text style={styles.userLabel}>USER DIRECTIVE</Text>
-           <Ionicons name="terminal" size={14} color="#5E5CE6" style={{marginLeft: 6}}/>
+           <Icon name="terminal" size={14} color="#5E5CE6" style={{marginLeft: 6}}/>
         </View>
       )}
       
@@ -63,7 +63,7 @@ const AnimatedMessage = React.memo(({ item, isUser, handleReport }: any) => {
       {!isUser && (
         <View style={styles.cardFooter}>
           <TouchableOpacity style={styles.reportIcon} onPress={() => handleReport(item.id)}>
-            <Ionicons name="warning" size={12} color="#FF453A" style={{marginRight: 4}} />
+            <Icon name="warning" size={12} color="#FF453A" style={{marginRight: 4}} />
             <Text style={{fontSize: 10, color: '#FF453A', fontWeight: '800', letterSpacing: 1}}>FLAG ANOMALY</Text>
           </TouchableOpacity>
         </View>
@@ -272,17 +272,17 @@ export default function ChatScreen() {
           {/* Header */}
           <View style={styles.header}>
             <PressBtn onPress={() => router.canGoBack() ? router.back() : router.replace('/')} style={styles.backButton}>
-               <Ionicons name="chevron-back" size={24} color="#0A84FF" />
+               <Icon name="chevron-back" size={24} color="#0A84FF" />
             </PressBtn>
             <Text style={styles.title}>OmniGuard AI</Text>
             <View style={{flexDirection: 'row'}}>
                {currentSessionId && (
                   <PressBtn onPress={() => deleteSession(currentSessionId)} style={styles.headerIconButton}>
-                     <Ionicons name="trash-outline" size={22} color="#FF453A" />
+                     <Icon name="trash-outline" size={22} color="#FF453A" />
                   </PressBtn>
                )}
                <PressBtn onPress={startNewChat} style={styles.headerIconButton}>
-                  <Ionicons name="create-outline" size={24} color="#0A84FF" />
+                  <Icon name="create-outline" size={24} color="#0A84FF" />
                </PressBtn>
             </View>
           </View>
@@ -295,7 +295,7 @@ export default function ChatScreen() {
                      style={[styles.historyPill, currentSessionId === null && styles.activeHistoryPill]} 
                      onPress={startNewChat}
                   >
-                     <Ionicons name="add" size={14} color={currentSessionId === null ? "#FFF" : "#8E8E93"} style={{marginRight: 4}} />
+                     <Icon name="add" size={14} color={currentSessionId === null ? "#FFF" : "#8E8E93"} style={{marginRight: 4}} />
                      <Text style={[styles.historyText, currentSessionId === null && {color: '#FFF'}]}>New</Text>
                   </TouchableOpacity>
                   {sessions.map(session => (
@@ -304,7 +304,7 @@ export default function ChatScreen() {
                         style={[styles.historyPill, currentSessionId === session.id && styles.activeHistoryPill]} 
                         onPress={() => loadSession(session)}
                      >
-                        <Ionicons name="chatbubble-outline" size={12} color={currentSessionId === session.id ? "#FFF" : "#8E8E93"} style={{marginRight: 6}} />
+                        <Icon name="chatbubble-outline" size={12} color={currentSessionId === session.id ? "#FFF" : "#8E8E93"} style={{marginRight: 6}} />
                         <Text style={[styles.historyText, currentSessionId === session.id && {color: '#FFF'}]}>{session.title}</Text>
                      </TouchableOpacity>
                   ))}
@@ -347,7 +347,7 @@ export default function ChatScreen() {
                   multiline
                 />
                 <PressBtn style={styles.sendButton} onPress={sendMessage} disabled={isTyping || !inputText.trim()}>
-                  <Ionicons name="send" size={18} color="#FFF" style={{ marginLeft: 2 }} />
+                  <Icon name="send" size={18} color="#FFF" style={{ marginLeft: 2 }} />
                 </PressBtn>
               </BlurView>
             </View>
